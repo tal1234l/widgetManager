@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" ng-app="mainApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Widget Manager</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <!-- Main css-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Bootstrap css lib  -->
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css" >
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
+    <!-- Angular JS libs -->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-animate.min.js"></script>
+    <script src="lib/angular/angular-ui-router.min.js"></script>
+
+    <!-- Bootstrap JS libs-->
+    <script src="lib/bootstrap/ui-bootstrap-0.12.0.min.js"></script>
+
+    <!--html templates-->
+    <script src="./js/clientRoutes.js"></script>
+    <!--services-->
+    <script src="js/services/services.js"></script>
+    <!--controllers-->
+    <script src="js/controllers/controllers.js"></script>
+
+
+</head>
+<body>
+
+<div ng-controller="mainController">
+    <h1 class="headerTitle siteFont"> Widget Manager</h1>
+
+    <!-- this is where content will be injected -->
+    <div ui-view="homePage" ></div>
+    <div ui-view="widgetDetails" ></div>
+</div>
+
+</body>
+</html>
