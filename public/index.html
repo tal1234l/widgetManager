@@ -36,9 +36,11 @@
 <div ng-controller="mainController">
     <h1 class="headerTitle siteFont"> Widget Manager</h1>
 
-    <!-- this is where content will be injected -->
-    <div ui-view="homePage" ></div>
-    <div ui-view="widgetDetails" ></div>
+    <div ui-view>
+        <div ui-view="widgetSummary" ></div>
+        <div ui-view="widgetDetails" ></div>
+    </div>
+
 </div>
 
 </body>

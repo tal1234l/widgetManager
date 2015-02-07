@@ -9,10 +9,23 @@
 }
 
 /*homePage css*/
-.widgetSummery{
+.widgetSummary{
 
 }
 
 .widgetDetails{
+
+}
+
+.container{
+ border: 1px solid #000000;
+ border-radius: 10px;
+ margin-left: 5px;
+ padding: 5px;
+}
+
+.editWidgetButton{
+    display: inline-block;
+    float: right;
 
 }

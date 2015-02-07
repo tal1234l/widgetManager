@@ -5,13 +5,12 @@ mainApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvide
     $urlRouterProvider.otherwise('/');
     $stateProvider
 
-        // route for the home page
         .state('index', {
             url:'/:id',
             views: {
-                'homePage': {
-                    templateUrl : '/views/homepage.html',
-                    controller: 'homepageController'
+                'widgetSummary': {
+                    templateUrl : '/views/widgetSummary.html',
+                    controller: 'widgetSummaryController'
                 },
                 'widgetDetails': {
                     templateUrl : '/views/widgetDetails.html',
@@ -21,7 +20,6 @@ mainApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvide
 
         })
 
-        // route for the edit page
         .state('edit', {
             url:'/edit',
             templateUrl : '/views/edit.html',

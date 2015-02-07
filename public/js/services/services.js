@@ -13,13 +13,17 @@ angular.module('mainApp').factory('WidgetListObj', function() {
         },
 
         removeWidget: function(index){
-            debugger;
             WidgetList.splice(index,1);
         },
 
         getWidgetList: function(){
             return WidgetList;
+        },
+
+        getWidgetDetails: function(index){
+            return WidgetList[index];
         }
+
 
 
     };
