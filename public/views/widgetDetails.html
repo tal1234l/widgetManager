@@ -2,9 +2,12 @@
         <h1 class="siteFont">Widget Details </h1>
         <p>All available widget details , containing key value that define the widget </p><br>
         <p>
-            <b>widget name: {{widgetDetails.name}}</b><br>
+            <b>{{widgetDetails.name}}</b><br>
              key1: {{widgetDetails.key1}}<br>
-             key2: {{widgetDetails.key2}}
+             key2: {{widgetDetails.key2}}<br>
+             key3: {{widgetDetails.key3}}<br>
+             key4: {{widgetDetails.key4}}<br>
+             key5: {{widgetDetails.key5}}
         </p>
-        <button type="button" title="Press to edit the widget details" class="btn btn-primary" >Edit</button>
+        <button type="button" title="Press to edit the widget details" class="btn btn-primary" ui-sref="edit({id: widgetDetails.id})">Edit</button>
 </div>

@@ -1,0 +1,39 @@
+[
+    {
+        name: "widget1",
+        id:"a626d529-6dd6-4977-8d6a-b5fdc411fe78",
+        key1: "123",
+        key2: "abc111",
+        key3: "abc54",
+        key4: "abc65",
+        key5: "abc57"
+
+    },
+    {
+        name: "widget2",
+        id:"709ef0a7-0dc0-4737-85f4-e5408519ff9f",
+        key1: "12345",
+        key2: "abcde",
+        key3: "abc22",
+        key4: "abc231",
+        key5: "abc4353"
+    },
+    {
+        name: "widget3",
+        id:"3aa27035-53b1-435d-ad6f-c27cb8114ad3",
+        key1: "111",
+        key2: "aaa877",
+        key3: "abc6876",
+        key4: "abc980",
+        key5: "abc345"
+    },
+    {
+        name: "widget4",
+        id:"f0ed056f-1cc8-44e3-8731-9478c475d1ae",
+        key1: "222",
+        key2: "bbb7890",
+        key3: "abc678",
+        key4: "abc890",
+        key5: "abc123"
+    }
+]

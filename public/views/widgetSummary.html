@@ -5,7 +5,6 @@
         <table class="table table-striped " >
             <thead>
             <tr>
-                <th>#</th>
                 <th>Name</th>
                 <th>Details</th>
                 <th>Remove</th>
@@ -13,10 +12,9 @@
             </thead>
             <tbody>
             <tr ng-repeat="item in widgetList">
-                <th scope="row">{{$index + 1}}</th>
                 <td>{{item.name}}</td>
-                <td><button type="button" title="Press to view widget details" class="btn btn-success" ui-sref="index({id: $index})">details</button></td>
-                <td><button type="button" title="Press to remove widget" class="btn btn-danger" ng-click="remove($index,widgetList)">remove</button></td>
+                <td><button type="button" title="Press to view widget details" class="btn btn-success" ui-sref="index({id: widgetList[$index].id})">details</button></td>
+                <td><button type="button" title="Press to remove widget" class="btn btn-danger" ng-click="remove($index,widgetList[$index].id)">remove</button></td>
             </tr>
             </tbody>
         </table>

@@ -21,12 +21,12 @@ mainApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvide
         })
 
         .state('edit', {
-            url:'/edit',
+            url:'/edit/:id',
             templateUrl : '/views/edit.html',
             controller: 'editController'
         })
 
 
 
-}]).constant('API_URL','http://'+ window.location.host);
+}]);
 

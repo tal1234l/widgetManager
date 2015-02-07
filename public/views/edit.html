@@ -2,34 +2,34 @@
     <h1 class="siteFont">Edit Widget</h1>
     <p>Edit the widget details</p>
 
-    <form novalidate class="simple-form ">
+    <form name="editWidgetForm" novalidate class="simple-form ">
         <div class="form-group">
-            <label for="widgetName">Name: </label>
-            <input ng-model="widgetDetails.name" type="text" class="form-control" id="widgetName" placeholder="Enter widget name">
+            <label for="widgetName">*Name: </label>
+            <input ng-model="widgetDetails.name" type="text" class="form-control" id="widgetName" placeholder="Enter widget name" required>
         </div>
         <div class="form-group">
             <label for="key1">key1</label>
             <input ng-model="widgetDetails.key1" type="text" class="form-control" id="key1" placeholder="Enter value of key1">
         </div>
         <div class="form-group">
-            <label for="key2">key1</label>
+            <label for="key2">key2</label>
             <input ng-model="widgetDetails.key2" type="text" class="form-control" id="key2" placeholder="Enter value of key2">
         </div>
         <div class="form-group">
-            <label for="key3">key1</label>
+            <label for="key3">key3</label>
             <input ng-model="widgetDetails.key3" type="text" class="form-control" id="key3" placeholder="Enter value of key3">
         </div>
         <div class="form-group">
-            <label for="key4">key1</label>
+            <label for="key4">key4</label>
             <input ng-model="widgetDetails.key4" type="text" class="form-control" id="key4" placeholder="Enter value of key4">
         </div>
         <div class="form-group">
-            <label for="key5">key1</label>
+            <label for="key5">key5</label>
             <input ng-model="widgetDetails.key5" type="text" class="form-control" id="key5" placeholder="Enter value of key5">
         </div>
 
         <div class="editWidgetButton">
-            <input type="submit" ng-click="update(user)" class="btn btn-primary" value="Save" />
+            <input ng-disabled="editWidgetForm.$invalid" type="submit" ui-sref="index" ng-click="editWidget(widgetDetails)" class="btn btn-primary" value="Save" />
             <input type="button" ui-sref="index" class="btn btn-primary" value="Cancel" />
         </div>
 
