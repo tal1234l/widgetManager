@@ -1,5 +1,6 @@
 <div ng-if=inDetailsMode() class="col-xs-12 col-md-4 widgetDetails ">
         <h1 class="siteFont">Widget Details </h1>
+        <button type="button" class="btn btn-primary widgetDetailsCloseButton" ng-click="closeDetails()">x</button>
         <p>All available widget details , containing key value that define the widget </p><br>
         <p>
             <b>{{widgetDetails.name}}</b><br>

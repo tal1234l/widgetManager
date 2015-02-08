@@ -8,15 +8,6 @@
     margin: 14px auto;
 }
 
-/*homePage css*/
-.widgetSummary{
-
-}
-
-.widgetDetails{
-
-}
-
 .container{
  border: 1px solid #000000;
  border-radius: 10px;
@@ -28,4 +19,14 @@
     display: inline-block;
     float: right;
 
+}
+
+.widgetDetailsCloseButton{
+    border-radius: 18px !important;
+    width: 27px;
+    height: 28px;
+    padding: 3px !important;
+    right: 33px;
+    position: absolute;
+    top: 28px;
 }
