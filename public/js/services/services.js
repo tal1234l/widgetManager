@@ -13,6 +13,7 @@ angular.module('mainApp').factory('WidgetListObj',['uniqueId','localStorageDB', 
             //initialize data from local storage
             var keyArray = localStorageDB.getAllKeys();
             keyArray.forEach(function(item) {
+                delete item["$$hashKey"];
                 WidgetList.push(item);
             });
         },

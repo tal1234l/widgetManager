@@ -9,7 +9,7 @@ mainApp.controller('mainController',['$scope','WidgetListObj','$http', function(
 
 }]);
 
-mainApp.controller('widgetSummaryController',['$scope','$modal','WidgetListObj','localStorageDB', function($scope, $modal, WidgetListObj, localStorageDB) {
+mainApp.controller('widgetSummaryController',['$scope','$modal','WidgetListObj','localStorageDB','$location', function($scope, $modal, WidgetListObj, localStorageDB, $location) {
 
     /*Get widget list*/
     $scope.widgetList = WidgetListObj.getWidgetList();
@@ -26,6 +26,7 @@ mainApp.controller('widgetSummaryController',['$scope','$modal','WidgetListObj',
         modalInstance.result.then(function () {
             WidgetListObj.removeWidget(index);
             localStorageDB.delete(id);
+            $location.path(window.location.origin);
         });
     };
 
