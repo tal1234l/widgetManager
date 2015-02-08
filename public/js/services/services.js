@@ -3,13 +3,16 @@ angular.module('mainApp').factory('WidgetListObj',['uniqueId','localStorageDB', 
 
     return {
 
-        initList: function(list){
-
+        initListWithMockData: function(list){
             //initialize hard coded data
             list.forEach(function(item) {
                 WidgetList.push(item);
             });
 
+
+        },
+
+        initListFromLocalStorage: function(){
             //initialize data from local storage
             var keyArray = localStorageDB.getAllKeys();
             keyArray.forEach(function(item) {
@@ -103,6 +106,11 @@ angular.module('mainApp').service('localStorageDB',[ function localStorageDB(){
     this.get = function(widgetId){
         return localStorage.getItem(widgetId);
     };
+    this.getName = function(widgetId){
+        if(localStorage.getItem("WidgetManager."+widgetId)!== null)
+            return JSON.parse(localStorage.getItem("WidgetManager."+widgetId)).name;
+        return null;
+    };
     this.getAllKeys = function(){
         var i,key, keyArray= [];
         for (i = (localStorage.length - 1); i >=0 ; i--) {
@@ -121,7 +129,7 @@ angular.module('mainApp').service('localStorageDB',[ function localStorageDB(){
         var exists = false;
         var i, keyArray = this.getAllKeys();
         for(i=0; i<keyArray.length; i++){
-            if(keyArray[i].widgetName === widgetName)
+            if(keyArray[i].name === widgetName)
             {
                 exists = true;
             }

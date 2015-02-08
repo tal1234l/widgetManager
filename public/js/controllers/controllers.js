@@ -3,9 +3,12 @@
 mainApp.controller('mainController',['$scope','WidgetListObj','$http', function($scope, WidgetListObj, $http) {
 
     //Load mock data
-    $http.get('js/data.json').success(function(data) {
-        WidgetListObj.initList(data);
-    });
+   /* $http.get('js/data.json').success(function(data) {
+        WidgetListObj.initListWithMockData(data);
+    });*/
+
+    //Load data from local storage
+    WidgetListObj.initListFromLocalStorage();
 
 }]);
 
@@ -32,7 +35,7 @@ mainApp.controller('widgetSummaryController',['$scope','$modal','WidgetListObj',
 
 }]);
 
-mainApp.controller('editController',['$scope','WidgetListObj', function($scope,WidgetListObj) {
+mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB', function($scope, WidgetListObj, localStorageDB) {
     $scope.editWidget = function(widgetDetails){
         if(window.location.hash.split('/')[2].length>0){
             WidgetListObj.editWidget(window.location.hash.split('/')[2],widgetDetails);
@@ -42,13 +45,25 @@ mainApp.controller('editController',['$scope','WidgetListObj', function($scope,W
         }
 
     };
+
+    $scope.isNameUnique = function(name){
+        //check that the name is unique and enable the user to keep the existing name
+        var widgetName, widgetId = location.hash.split('/')[2] ;
+        debugger;
+        if(widgetId !==null)
+        {
+            widgetName = localStorageDB.getName(widgetId);
+        }
+
+        if(widgetName !== null && widgetName === name)
+            return false;
+        else
+            return localStorageDB.checkName(name);
+    };
 }]);
 
 mainApp.controller('removeWidgetController',['$scope','$modalInstance', function ($scope, $modalInstance) {
-
-
-
-    $scope.ok = function (index,widgetList) {
+    $scope.ok = function () {
         $modalInstance.close();
 
     };
