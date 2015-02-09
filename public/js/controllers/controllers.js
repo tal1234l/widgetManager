@@ -41,6 +41,10 @@ mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB','
          $scope.keys = data;
      });*/
 
+    $scope.keys = [
+        {key:"",value:""}
+    ];
+
     $scope.editWidget = function(widgetDetails){
         if(window.location.hash.split('/')[2].length>0){
             debugger;
@@ -65,6 +69,26 @@ mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB','
         else
             return localStorageDB.checkName(name);
     };
+
+    $scope.addKeyValue = function(){
+        this.keys.push({key:"", value:""});
+    };
+    $scope.removeKeyValue = function(index){
+        this.keys.splice(index,1);
+    };
+    $scope.keysCount = function(){
+        return this.keys.length;
+    }
+    $scope.allKeysValid = function(){
+        var status = true;
+        this.keys.forEach(function(item){
+            if (item.key === "")
+            {
+                status =  false;
+            }
+        });
+        return status;
+    }
 
 
 }]);

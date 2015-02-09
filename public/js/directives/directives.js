@@ -1,7 +1,14 @@
-angular.module('mainApp').directive("superman", function() {
+angular.module('mainApp').directive("keyValue", function() {
     return {
         restrict: "E",
-        template: "<div>Here I am to save the day</div>"
+        template: ['<div class="form-group keyValue">'+'<label class="keyValue">Key: </label>'+
+            '<input id=key{{$index+1}} name=key1 ng-model="item.key" class="col-xs-5 col-md-5 keyValueStyle" type="text" class="form-control" placeholder="Enter key{{$index+1}}" required>'+
+            '<label class="keyValue">Value: </label>'+
+            '<input class="col-xs-5 col-md-5 keyValueStyle" type="text" class="form-control" placeholder="Enter value" required></br>'+
+            '<button ng-show="$first && keysCount === 1 || $last" type="button"  class="btn btn-success keyValueButton" ng-click="addKeyValue()">+</button>'+
+            '<button ng-hide="$first && keysCount === 1" type="button"  class="btn btn-danger keyValueButton" ng-click="removeKeyValue($index)">-</button></div>'+
+            '<p class="HelpMessage" ng-show="editWidgetForm.key1.$dirty && !item.key">Please enter value for key{{$index+1}}</p>'
+        ].join()
     };
 });
 
