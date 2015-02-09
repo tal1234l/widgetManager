@@ -11,6 +11,9 @@
 .editWidget{
  padding: 5px;
 }
+.keyValueStyle{
+    margin-left: 10px;
+}
 
 .containerStyle{
     background: #ededed;
@@ -35,6 +38,12 @@
     right: 6px;
     position: absolute;
     top: 6px;
+}
+
+.unstyled{
+    list-style-type: none;
+    padding-left: 0px;
+
 }
 
 .red{

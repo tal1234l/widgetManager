@@ -22,10 +22,9 @@ angular.module('mainApp').factory('WidgetListObj',['uniqueId','localStorageDB', 
         },
 
         editWidget: function(id,widgetDetails) {
-            var i, index = this.findIndex(id);
+            var index=0, index = this.findIndex(id);
             if(index > -1)
             {
-
                 WidgetList[index].name = widgetDetails.name;
                 WidgetList[index].key1 = widgetDetails.key1;
                 WidgetList[index].key2 = widgetDetails.key2;
@@ -57,6 +56,7 @@ angular.module('mainApp').factory('WidgetListObj',['uniqueId','localStorageDB', 
 
         },
         addNewWidget: function(widgetDetails){
+            debugger;
             widgetDetails.id = uniqueId.generateUniqueId();
             WidgetList.push(widgetDetails);
             localStorageDB.set(widgetDetails);

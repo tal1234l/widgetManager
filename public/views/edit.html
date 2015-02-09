@@ -9,31 +9,10 @@
         </div>
         <p class="help-block" ng-show="editWidgetForm.name.$dirty && editWidgetForm.name.$invalid">Please enter a widget name</p>
         <p class="help-block" ng-show="editWidgetForm.name.$dirty && isNameUnique(widgetDetails.name)">Name already taken, try a different one </p>
-        <div class="form-group">
-            <label for="key1">*key1</label>
-            <input ng-class="{red: editWidgetForm.key1.$dirty && editWidgetForm.key1.$invalid}" name="key1" ng-model="widgetDetails.key1" type="text" class="form-control" id="key1" placeholder="Enter value of key1" required>
-        </div>
-        <p class="help-block" ng-show="editWidgetForm.key1.$dirty && editWidgetForm.key1.$invalid">Please enter value for key1</p>
-        <div class="form-group">
-            <label for="key2">*key2</label>
-            <input ng-class="{red: editWidgetForm.key2.$dirty && editWidgetForm.key2.$invalid}" name="key2" ng-model="widgetDetails.key2" type="text" class="form-control" id="key2" placeholder="Enter value of key2" required>
-        </div>
-        <p class="help-block" ng-show="editWidgetForm.key2.$dirty && editWidgetForm.key2.$invalid">Please enter value for key2</p>
-        <div class="form-group">
-            <label for="key3">*key3</label>
-            <input ng-class="{red: editWidgetForm.key3.$dirty && editWidgetForm.key3.$invalid}" name="key3" ng-model="widgetDetails.key3" type="text" class="form-control" id="key3" placeholder="Enter value of key3" required>
-        </div>
-        <p class="help-block" ng-show="editWidgetForm.key3.$dirty && editWidgetForm.key3.$invalid">Please enter value for key3</p>
-        <div class="form-group">
-            <label for="key4">*key4</label>
-            <input ng-class="{red: editWidgetForm.key4.$dirty && editWidgetForm.key4.$invalid}" name="key4" ng-model="widgetDetails.key4" type="text" class="form-control" id="key4" placeholder="Enter value of key4" required>
-        </div>
-        <p class="help-block" ng-show="editWidgetForm.key4.$dirty && editWidgetForm.key4.$invalid">Please enter value for key4</p>
-        <div class="form-group">
-            <label for="key5">*key5</label>
-            <input ng-class="{red: editWidgetForm.key5.$dirty && editWidgetForm.key5.$invalid}" name="key5" ng-model="widgetDetails.key5" type="text" class="form-control" id="key5" placeholder="Enter value of key5" required>
-        </div>
-        <p class="help-block" ng-show="editWidgetForm.key5.$dirty && editWidgetForm.key5.$invalid">Please enter value for key5</p>
+
+        <p><b>Keys and Values</b></p>
+            <superman></superman>
+
         <div class="editWidgetButton">
             <input title="Save widget edit" ng-disabled="editWidgetForm.$invalid || isNameUnique(widgetDetails.name)" type="submit" ui-sref="index" ng-click="editWidget(widgetDetails)" class="btn btn-primary" value="Save" />
             <input type="button" ui-sref="index" class="btn btn-primary" value="Cancel" />

@@ -35,9 +35,15 @@ mainApp.controller('widgetSummaryController',['$scope','$modal','WidgetListObj',
 
 }]);
 
-mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB', function($scope, WidgetListObj, localStorageDB) {
+mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB','$http', function($scope, WidgetListObj, localStorageDB, $http) {
+
+     /*$http.get('js/keys.json').success(function(data) {
+         $scope.keys = data;
+     });*/
+
     $scope.editWidget = function(widgetDetails){
         if(window.location.hash.split('/')[2].length>0){
+            debugger;
             WidgetListObj.editWidget(window.location.hash.split('/')[2],widgetDetails);
         }
         else{
@@ -49,7 +55,6 @@ mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB', 
     $scope.isNameUnique = function(name){
         //check that the name is unique and enable the user to keep the existing name
         var widgetName, widgetId = location.hash.split('/')[2] ;
-        debugger;
         if(widgetId !==null)
         {
             widgetName = localStorageDB.getName(widgetId);
@@ -60,6 +65,8 @@ mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB', 
         else
             return localStorageDB.checkName(name);
     };
+
+
 }]);
 
 mainApp.controller('removeWidgetController',['$scope','$modalInstance', function ($scope, $modalInstance) {
