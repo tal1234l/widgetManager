@@ -17,7 +17,7 @@
 
 
         <div class="editWidgetButton">
-            <input title="Save widget edit" ng-disabled="!allKeysValid() || !name " type="submit" ui-sref="index" ng-click="editWidget(name)" class="btn btn-primary" value="Save" />
+            <input title="Save widget edit" ng-disabled="!allKeysValid() || !name || isNameUnique(name) || !allKeysAreUnique()" type="submit" ui-sref="index" ng-click="editWidget(name)" class="btn btn-primary" value="Save" />
             <input type="button" ui-sref="index" class="btn btn-primary" value="Cancel" />
         </div>
     </form>

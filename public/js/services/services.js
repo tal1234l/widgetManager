@@ -8,8 +8,6 @@ angular.module('mainApp').factory('WidgetListObj',['uniqueId','localStorageDB', 
             list.forEach(function(item) {
                 WidgetList.push(item);
             });
-
-
         },
 
         initListFromLocalStorage: function(){
@@ -25,7 +23,6 @@ angular.module('mainApp').factory('WidgetListObj',['uniqueId','localStorageDB', 
             var index=0, index = this.findIndex(id);
             if(index > -1)
             {
-                debugger;
                 WidgetList[index].keys = keys;
                 WidgetList[index].name = name;
             }
@@ -53,7 +50,6 @@ angular.module('mainApp').factory('WidgetListObj',['uniqueId','localStorageDB', 
 
         },
         addNewWidget: function(name, keys){
-            debugger;
             var newWidget = {};
             newWidget.id = uniqueId.generateUniqueId();
             newWidget.name = name;
@@ -70,10 +66,6 @@ angular.module('mainApp').factory('WidgetListObj',['uniqueId','localStorageDB', 
             }
             return index;
         }
-
-
-
-
     };
 
 }]);

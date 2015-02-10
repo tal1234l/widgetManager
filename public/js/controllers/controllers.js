@@ -57,7 +57,6 @@ mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB','
 
 
     $scope.editWidget = function(name){
-        debugger;
         if($scope.id !== ''){
 
             WidgetListObj.editWidget($scope.id,name, $scope.keys);
@@ -90,7 +89,20 @@ mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB','
     };
     $scope.keysCount = function(){
         return this.keys.length;
-    }
+    };
+    $scope.checkUniqueKey = function(name){
+        var unique = true, count=0;
+        this.keys.forEach(function(item){
+            if (item.key === name)
+            {
+                count++;
+            }
+        });
+        if(count > 1)
+            unique = false;
+        return unique;
+
+    };
     $scope.allKeysValid = function(){
         var status = true;
         this.keys.forEach(function(item){
@@ -100,7 +112,30 @@ mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB','
             }
         });
         return status;
-    }
+    };
+    $scope.allKeysAreUnique = function(){
+        var i, j, keyToCheck, unique = true, count=0;
+        for(i=0; i<this.keys.length; i++)
+        {
+            count=0;
+            keyToCheck = this.keys[i].key;
+            for(j=0;j<this.keys.length; j++)
+            {
+                if(keyToCheck === this.keys[j].key)
+                {
+                    count++;
+                }
+                if(count > 1)
+                {
+                    unique= false;
+                    return unique;
+                }
+            }
+
+        }
+
+        return unique;
+    };
 
 
 }]);
