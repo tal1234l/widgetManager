@@ -2,11 +2,6 @@
 
 mainApp.controller('mainController',['$scope','WidgetListObj','$http', function($scope, WidgetListObj, $http) {
 
-    //Load mock data
-   /* $http.get('js/data.json').success(function(data) {
-        WidgetListObj.initListWithMockData(data);
-    });*/
-
     //Load data from local storage
     WidgetListObj.initListFromLocalStorage();
 

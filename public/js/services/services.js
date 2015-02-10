@@ -3,13 +3,6 @@ angular.module('mainApp').factory('WidgetListObj',['uniqueId','localStorageDB', 
 
     return {
 
-        initListWithMockData: function(list){
-            //initialize hard coded data
-            list.forEach(function(item) {
-                WidgetList.push(item);
-            });
-        },
-
         initListFromLocalStorage: function(){
             //initialize data from local storage
             var keyArray = localStorageDB.getAllKeys();
