@@ -1,0 +1,25 @@
+<div class="col-md-1 "></div>
+<div class="col-xs-12 col-md-10 editWidget containerStyle">
+    <h1 class="siteFont">Edit Widget</h1>
+
+    <form name="editWidgetForm" novalidate class="simple-form ">
+        <div class="form-group " >
+            <label for="widgetName">*Name: </label>
+            <input ng-class="{red: editWidgetForm.name.$dirty && editWidgetForm.name.$invalid}" name="name" ng-model="widgetDetails.name" type="text" class="form-control" id="widgetName" placeholder="Enter widget name" required>
+        </div>
+        <p class="editHelpMessage" ng-show="editWidgetForm.name.$dirty && editWidgetForm.name.$invalid">Please enter a widget name</p>
+        <p class="editHelpMessage" ng-show="editWidgetForm.name.$dirty && isNameUnique(widgetDetails.name)">Name already taken, try a different one </p>
+
+        <p><b>Keys and Values</b></p>
+        <div>
+            <key-value ng-repeat="item in keys"></key-value>
+        </div>
+
+
+        <div class="editWidgetButton">
+            <input title="Save widget edit" ng-disabled="!allKeysValid() || !widgetDetails.name " type="submit" ui-sref="index" ng-click="editWidget(widgetDetails)" class="btn btn-primary" value="Save" />
+            <input type="button" ui-sref="index" class="btn btn-primary" value="Cancel" />
+        </div>
+    </form>
+</div>
+<div class="col-md-1"></div>
