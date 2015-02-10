@@ -5,11 +5,7 @@
         <p>
             <b>{{widgetDetails.name}}</b><br>
             <ul class="unstyled">
-                <li>key1: {{widgetDetails.key1}}</li>
-                <li>key2: {{widgetDetails.key2}}</li>
-                <li>key3: {{widgetDetails.key3}}</li>
-                <li>key4: {{widgetDetails.key4}}</li>
-                <li>key5: {{widgetDetails.key5}}</li>
+                <li ng-repeat="item in widgetDetails.keys">{{item.key}}: {{item.value}}</li>
             </ul>
         </p>
         <button type="button" title="Press to edit the widget details" class="btn btn-primary" ui-sref="edit({id: widgetDetails.id})">Edit</button>

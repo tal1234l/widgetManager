@@ -21,16 +21,13 @@ angular.module('mainApp').factory('WidgetListObj',['uniqueId','localStorageDB', 
             });
         },
 
-        editWidget: function(id,widgetDetails) {
+        editWidget: function(id,name,keys) {
             var index=0, index = this.findIndex(id);
             if(index > -1)
             {
-                WidgetList[index].name = widgetDetails.name;
-                WidgetList[index].key1 = widgetDetails.key1;
-                WidgetList[index].key2 = widgetDetails.key2;
-                WidgetList[index].key3 = widgetDetails.key3;
-                WidgetList[index].key4 = widgetDetails.key4;
-                WidgetList[index].key5 = widgetDetails.key5;
+                debugger;
+                WidgetList[index].keys = keys;
+                WidgetList[index].name = name;
             }
             localStorageDB.set(WidgetList[index]);
         },
@@ -55,11 +52,14 @@ angular.module('mainApp').factory('WidgetListObj',['uniqueId','localStorageDB', 
             }
 
         },
-        addNewWidget: function(widgetDetails){
+        addNewWidget: function(name, keys){
             debugger;
-            widgetDetails.id = uniqueId.generateUniqueId();
-            WidgetList.push(widgetDetails);
-            localStorageDB.set(widgetDetails);
+            var newWidget = {};
+            newWidget.id = uniqueId.generateUniqueId();
+            newWidget.name = name;
+            newWidget.keys = keys;
+            WidgetList.push(newWidget);
+            localStorageDB.set(newWidget);
         },
         findIndex: function(id){
             var index = -1, i;
@@ -109,6 +109,11 @@ angular.module('mainApp').service('localStorageDB',[ function localStorageDB(){
     this.getName = function(widgetId){
         if(localStorage.getItem("WidgetManager."+widgetId)!== null)
             return JSON.parse(localStorage.getItem("WidgetManager."+widgetId)).name;
+        return null;
+    };
+    this.getWidgetDetails = function(widgetId){
+        if(localStorage.getItem("WidgetManager."+widgetId)!== null)
+            return JSON.parse(localStorage.getItem("WidgetManager."+widgetId));
         return null;
     };
     this.getAllKeys = function(){

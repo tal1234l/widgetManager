@@ -35,33 +35,45 @@ mainApp.controller('widgetSummaryController',['$scope','$modal','WidgetListObj',
 
 }]);
 
-mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB','$http', function($scope, WidgetListObj, localStorageDB, $http) {
+mainApp.controller('editController',['$scope','WidgetListObj','localStorageDB','$location', function($scope, WidgetListObj, localStorageDB, $location) {
 
-     /*$http.get('js/keys.json').success(function(data) {
-         $scope.keys = data;
-     });*/
+    $scope.keys = [];
+    $scope.name ="";
 
-    $scope.keys = [
-        {key:"",value:""}
-    ];
+    $scope.init = function () {
+        $scope.id = location.hash.split('/')[location.hash.split('/').length-1];
 
-    $scope.editWidget = function(widgetDetails){
-        if(window.location.hash.split('/')[2].length>0){
-            debugger;
-            WidgetListObj.editWidget(window.location.hash.split('/')[2],widgetDetails);
+        if($scope.id !== ''){
+            var widgetDetails = localStorageDB.getWidgetDetails($scope.id);
+            $scope.keys = widgetDetails.keys;
+            $scope.name = widgetDetails.name;
         }
         else{
-            WidgetListObj.addNewWidget(widgetDetails);
+            $scope.keys.push({key:"",value:""});
+        }
+
+    };
+
+
+
+    $scope.editWidget = function(name){
+        debugger;
+        if($scope.id !== ''){
+
+            WidgetListObj.editWidget($scope.id,name, $scope.keys);
+        }
+        else{
+            WidgetListObj.addNewWidget(name, $scope.keys);
         }
 
     };
 
     $scope.isNameUnique = function(name){
         //check that the name is unique and enable the user to keep the existing name
-        var widgetName, widgetId = location.hash.split('/')[2] ;
-        if(widgetId !==null)
+        var widgetName;
+        if($scope.id !=='')
         {
-            widgetName = localStorageDB.getName(widgetId);
+            widgetName = localStorageDB.getName($scope.id);
         }
 
         if(widgetName !== null && widgetName === name)
