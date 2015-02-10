@@ -1,4 +1,7 @@
-/* Import fonts */
+body{
+    background-color: #009de0 !important;
+}
+
 .siteFont{
     font-family: "Bookman", Georgia, "Times New Roman", serif;
 }
@@ -41,6 +44,7 @@
     background: #ededed;
     padding: 12px;
     border-radius: 10px;
+    margin: 5px;
 }
 
 .editWidgetButton{
